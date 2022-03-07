@@ -1,0 +1,17 @@
+<div class="col">
+    <div class="card">
+        <img src="{{ absolute_url(asset('uploads/imgUsersSafes/' ~ userSafe.urlPicture)) }}" class="card-img-top" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{ userSafe.userSafe |upper }}</h5>
+            <p class="card-text">
+                {{ 'host.city'|trans }} : {{ userSafe.homeLocalisation }}
+            </p>
+            <p class="card-text">
+                {{ 'host.country'|trans }} : {{ userSafe.homeCountry|upper }}
+            </p>
+            <p class="card-text">
+                {{ 'starting.city'|trans }} : {{ userSafe.cityBecoming }}
+            </p>
+        </div>
+    </div>
+</div>

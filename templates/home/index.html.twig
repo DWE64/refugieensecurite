@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block section %}
+    <div class="container-fluid">
+        <div class="example-wrapper">
+            <h1>{{ 'user.safe.become'|trans }}</h1>
+        </div>
+        <!-- start page title -->
+        <div class="row justify-content-between">
+            <div class="col-lg-11 col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">{{ 'user.safe.list'|trans }}</h4>
+                </div>
+            </div>
+            <div class="col-lg-1 col-12">
+                <div class="page-title-box">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#success-header-modal">
+                        {{ 'add.user_safe'|trans }}</button>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        {% include 'basicForm/modal/_modal.html.twig' %}
+        <!-- Primary Header Modal -->
+        <div class="row">
+            <div class="col-12">
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    {% if listUsersSafes is defined and listUsersSafes is not empty %}
+                        {% for userSafe in listUsersSafes %}
+                            {% include 'home/cards/_cards.html.twig' %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div> <!-- end col-->
+        </div>
+        <!-- end row -->
+
+    </div> <!-- container -->
+{% endblock %}

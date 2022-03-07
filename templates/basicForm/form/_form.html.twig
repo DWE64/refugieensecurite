@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        {{ form_start(formUserSafe) }}
+        <div class="row justify-content-center my-2">
+            {{ form_label(formUserSafe.userSafe) }}
+            {{ form_widget(formUserSafe.userSafe) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(formUserSafe.homeLocalisation) }}
+            {{ form_widget(formUserSafe.homeLocalisation) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(formUserSafe.homeCountry) }}
+            {{ form_widget(formUserSafe.homeCountry) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(formUserSafe.cityBecoming) }}
+            {{ form_widget(formUserSafe.cityBecoming) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(formUserSafe.urlPicture) }}
+            {{ form_widget(formUserSafe.urlPicture) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(formUserSafe.save) }}
+            {{ form_widget(formUserSafe.save) }}
+        </div>
+        {{ form_end(formUserSafe) }}
+    </div> <!-- end col -->
+</div>
