@@ -54,4 +54,12 @@ class HomeController extends AbstractController
             'listUsersSafes' => $pictureRepository->findAll()
         ]);
     }
+
+    #[Route('/change_locale/{locale}', name:'change_locale')]
+    public function changeLocale($locale, Request $request)
+    {
+        $request->getSession()->set('_locale',$locale);
+
+        return $this->redirect($request->headers->get('referer'));
+    }
 }
