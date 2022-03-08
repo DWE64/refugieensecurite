@@ -10,12 +10,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(Request $request, PictureRepository $pictureRepository, UploadFileService $uploadFileService): Response
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
     {
+        $this->translator = $translator;
+    }
+
+    #[Route('/', name: 'app_home')]
+    public function index(
+        Request $request,
+        PictureRepository $pictureRepository,
+        UploadFileService $uploadFileService,
+    ): Response
+    {
+
         $picture = new Picture();
         $form = $this->createForm(PictureType::class, $picture);
         $form->handleRequest($request);
@@ -36,7 +49,7 @@ class HomeController extends AbstractController
 
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'controller_name' => $this->translator->trans('page.home'),
             'formUserSafe' => $form->createView(),
             'listUsersSafes' => $pictureRepository->findAll()
         ]);

@@ -89,6 +89,10 @@
         <source>search.button</source>
         <target>Recherche</target>
       </trans-unit>
+      <trans-unit id="Mkt7e3B" resname="page.home">
+        <source>page.home</source>
+        <target>Accueil</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
