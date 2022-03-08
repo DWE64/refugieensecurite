@@ -7,11 +7,87 @@
     <body>
       <trans-unit id="GF_NsyJ" resname="Hello">
         <source>Hello</source>
-        <target>__Hello</target>
+        <target>Bonjour</target>
       </trans-unit>
       <trans-unit id="sY9HyU5" resname="user.safe.become">
         <source>user.safe.become</source>
-        <target>__user.safe.become</target>
+        <target>Liste de refugié sain et sauf</target>
+      </trans-unit>
+      <trans-unit id="2LF5Eg5" resname="user.safe">
+        <source>user.safe</source>
+        <target>Réfugiés sains et saufs</target>
+      </trans-unit>
+      <trans-unit id="tq3qATh" resname="host.city">
+        <source>host.city</source>
+        <target>Ville d'accueil</target>
+      </trans-unit>
+      <trans-unit id="kGg2O5H" resname="host.country">
+        <source>host.country</source>
+        <target>Pays d'accueil</target>
+      </trans-unit>
+      <trans-unit id="YkJrgV4" resname="starting.city">
+        <source>starting.city</source>
+        <target>Ville d'origine</target>
+      </trans-unit>
+      <trans-unit id="iP8VGTL" resname="user.safe.list">
+        <source>user.safe.list</source>
+        <target>Les réfugiés</target>
+      </trans-unit>
+      <trans-unit id="Xsui.n." resname="add.user_safe">
+        <source>add.user_safe</source>
+        <target>Nouveau réfugié</target>
+      </trans-unit>
+      <trans-unit id="_..xwfz" resname="user.safe.name">
+        <source>user.safe.name</source>
+        <target>Nom du/des réfugié(s)</target>
+      </trans-unit>
+      <trans-unit id="rlchWJo" resname="user.city.localisation">
+        <source>user.city.localisation</source>
+        <target>Ville d'accueil</target>
+      </trans-unit>
+      <trans-unit id="93tdyIN" resname="user.country.localisation">
+        <source>user.country.localisation</source>
+        <target>Pays d'accueil</target>
+      </trans-unit>
+      <trans-unit id="nqTuwd_" resname="user.city.becoming">
+        <source>user.city.becoming</source>
+        <target>Ville d'origine</target>
+      </trans-unit>
+      <trans-unit id=".whzELr" resname="file.message.upload">
+        <source>file.message.upload</source>
+        <target>Mauvais format de fichier</target>
+      </trans-unit>
+      <trans-unit id="20nkut2" resname="user.safe.picture">
+        <source>user.safe.picture</source>
+        <target>Votre photo</target>
+      </trans-unit>
+      <trans-unit id="R3CdZgz" resname="post.user.safe">
+        <source>post.user.safe</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="oZEr_QX" resname="user.safe.modal.new">
+        <source>user.safe.modal.new</source>
+        <target>Nouveau réfugié</target>
+      </trans-unit>
+      <trans-unit id="HgHdfrZ" resname="french.language">
+        <source>french.language</source>
+        <target>Français</target>
+      </trans-unit>
+      <trans-unit id="tfyvCKY" resname="english.language">
+        <source>english.language</source>
+        <target>Anglais</target>
+      </trans-unit>
+      <trans-unit id="X6vUoqv" resname="ukrainian.language">
+        <source>ukrainian.language</source>
+        <target>Ukrainien</target>
+      </trans-unit>
+      <trans-unit id="KgCOeBY" resname="russian.language">
+        <source>russian.language</source>
+        <target>Russe</target>
+      </trans-unit>
+      <trans-unit id="pfR3ajS" resname="search.button">
+        <source>search.button</source>
+        <target>Recherche</target>
       </trans-unit>
     </body>
   </file>

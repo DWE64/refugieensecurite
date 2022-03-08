@@ -11,9 +11,17 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PictureType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -25,7 +33,7 @@ class PictureType extends AbstractType
                 'label_attr'=>[
                     'class'=>'form-label'
                 ],
-                'label'=>'user.safe.name',
+                'label'=>$this->translator->trans('user.safe.name'),
             ])
             ->add('homeLocalisation',TextType::class, [
                 'required'=>true,
@@ -35,7 +43,7 @@ class PictureType extends AbstractType
                 'label_attr'=>[
                     'class'=>'form-label'
                 ],
-                'label'=>'user.city.localisation',
+                'label'=>$this->translator->trans('user.city.localisation'),
             ])
             ->add('homeCountry',CountryType::class, [
                 'required'=>true,
@@ -45,7 +53,7 @@ class PictureType extends AbstractType
                 'label_attr'=>[
                     'class'=>'form-label'
                 ],
-                'label'=>'user.country.localisation',
+                'label'=>$this->translator->trans('user.country.localisation'),
             ])
             ->add('cityBecoming', TextType::class, [
                 'required'=>true,
@@ -55,13 +63,12 @@ class PictureType extends AbstractType
                 'label_attr'=>[
                     'class'=>'form-label'
                 ],
-                'label'=>'user.city.becoming',
+                'label'=>$this->translator->trans('user.city.becoming'),
             ])
             ->add('urlPicture',FileType::class, [
                 'required'=>false,
                 'mapped' => false,
                 'attr'=>[
-                    'placeholder'=>'Photo profil',
                     'class'=>'form-control'
                 ],
                 'label_attr'=>[
@@ -75,16 +82,16 @@ class PictureType extends AbstractType
                             'image/png',
                             'image/gif'
                         ],
-                        'mimeTypesMessage' => 'file.message.upload',
+                        'mimeTypesMessage' => $this->translator->trans('file.message.upload'),
                     ])
                 ],
-                'label'=>'user.safe.picture'
+                'label'=>$this->translator->trans('user.safe.picture')
             ])
             ->add('save', SubmitType::class,[
                 'attr' => [
                     'class' => 'btn btn-success col-lg-2 col-12'
                 ],
-                'label'=>'post.user.safe'
+                'label'=>$this->translator->trans('post.user.safe')
             ])
         ;
     }
