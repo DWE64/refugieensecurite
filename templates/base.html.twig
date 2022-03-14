@@ -9,8 +9,10 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('app_core') }}
         {{ encore_entry_link_tags('icons') }}
-        <link href="{{ asset('/build/app-saas.css') }}" rel="stylesheet" type="text/css" id="light-style" />
-        <link href="{{ asset('/build/app-dark.css') }}" rel="stylesheet" type="text/css" id="dark-style" />
+        {{ encore_entry_link_tags('app-saas', attributes={'id':'light-style'}) }}
+        {{ encore_entry_link_tags('app-dark', attributes={'id':'dark-style'}) }}
+        <!--<link href="{{ asset('/build/app-saas.css') }}" rel="stylesheet" type="text/css" id="light-style" />
+        <link href="{{ asset('/build/app-dark.css') }}" rel="stylesheet" type="text/css" id="dark-style" />-->
     {% endblock %}
 
     <!--<link rel="shortcut icon" href="themeHyper/images/favicon.ico">-->
