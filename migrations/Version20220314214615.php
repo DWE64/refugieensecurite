@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220303205139 extends AbstractMigration
+final class Version20220314214615 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,7 +20,8 @@ final class Version20220303205139 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE picture (id INT AUTO_INCREMENT NOT NULL, user_safe VARCHAR(255) NOT NULL, home_localisation VARCHAR(255) NOT NULL, home_country VARCHAR(255) NOT NULL, city_becoming VARCHAR(255) NOT NULL, url_picture VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE picture (id INT AUTO_INCREMENT NOT NULL, user_safe VARCHAR(255) NOT NULL, home_localisation VARCHAR(255) NOT NULL, home_country VARCHAR(255) NOT NULL, city_becoming VARCHAR(255) NOT NULL, url_picture VARCHAR(255) NOT NULL, accepted TINYINT(1) NOT NULL, created_at DATETIME DEFAULT NULL, date_accepted DATETIME DEFAULT NULL, date_refused DATETIME DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE messenger_messages (id BIGINT AUTO_INCREMENT NOT NULL, body LONGTEXT NOT NULL, headers LONGTEXT NOT NULL, queue_name VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, available_at DATETIME NOT NULL, delivered_at DATETIME DEFAULT NULL, INDEX IDX_75EA56E016BA31DB (delivered_at), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
     }
 
@@ -28,6 +29,7 @@ final class Version20220303205139 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DROP TABLE picture');
+        $this->addSql('DROP TABLE user');
         $this->addSql('DROP TABLE messenger_messages');
     }
 }

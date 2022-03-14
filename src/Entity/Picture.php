@@ -28,6 +28,24 @@ class Picture
     #[ORM\Column(type: 'string', length: 255)]
     private $urlPicture;
 
+    #[ORM\Column(type: 'boolean')]
+    private $accepted;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $createdAt;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $dateAccepted;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $dateRefused;
+
+    public function __construct()
+    {
+        $this->accepted = false;
+        $this->createdAt = new \DateTimeImmutable("now");
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +107,54 @@ class Picture
     public function setUrlPicture(string $urlPicture): self
     {
         $this->urlPicture = $urlPicture;
+
+        return $this;
+    }
+
+    public function getAccepted(): ?bool
+    {
+        return $this->accepted;
+    }
+
+    public function setAccepted(bool $accepted): self
+    {
+        $this->accepted = $accepted;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getDateAccepted(): ?\DateTimeInterface
+    {
+        return $this->dateAccepted;
+    }
+
+    public function setDateAccepted(?\DateTimeInterface $dateAccepted): self
+    {
+        $this->dateAccepted = $dateAccepted;
+
+        return $this;
+    }
+
+    public function getDateRefused(): ?\DateTimeInterface
+    {
+        return $this->dateRefused;
+    }
+
+    public function setDateRefused(?\DateTimeInterface $dateRefused): self
+    {
+        $this->dateRefused = $dateRefused;
 
         return $this;
     }

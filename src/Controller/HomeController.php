@@ -44,6 +44,9 @@ class HomeController extends AbstractController
                 $picture->setUrlPicture($newFilename);
             }
             $pictureRepository->add($picture);
+
+            //rajouter ici le mail de notif
+
             return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -51,7 +54,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'controller_name' => $this->translator->trans('page.home'),
             'formUserSafe' => $form->createView(),
-            'listUsersSafes' => $pictureRepository->findAll()
+            'listUsersSafes' => $pictureRepository->findAllAcceptedByDesc(true)
         ]);
     }
 

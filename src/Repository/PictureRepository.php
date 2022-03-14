@@ -44,6 +44,16 @@ class PictureRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+    public function findAllAcceptedByDesc($param)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.accepted = :val')
+            ->orderBy('p.id', 'DESC')
+            ->setParameter('val', $param)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
     // /**
     //  * @return Picture[] Returns an array of Picture objects

@@ -21,6 +21,14 @@
                     <span> {{ 'user.safe'|trans }} </span>
                 </a>
             </li>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li class="side-nav-item">
+                    <a href="{{ path('app_picture_index') }}" class="side-nav-link">
+                        <i class="uil-layer-group"></i>
+                        <span> {{ 'user.safe.validation'|trans }} </span>
+                    </a>
+                </li>
+            {% endif %}
         </ul>
         <div class="clearfix"></div>
 

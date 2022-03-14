@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Picture;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -26,7 +27,7 @@ class PictureType extends AbstractType
     {
         $builder
             ->add('userSafe', TextType::class, [
-                'required'=>true,
+                'required'=>false,
                 'attr'=>[
                     'class'=>'form-control'
                 ],

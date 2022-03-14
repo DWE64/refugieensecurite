@@ -21,24 +21,6 @@ class PictureController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_picture_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PictureRepository $pictureRepository): Response
-    {
-        $picture = new Picture();
-        $form = $this->createForm(PictureType::class, $picture);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $pictureRepository->add($picture);
-            return $this->redirectToRoute('app_picture_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('picture/new.html.twig', [
-            'picture' => $picture,
-            'form' => $form,
-        ]);
-    }
-
     #[Route('/{id}', name: 'app_picture_show', methods: ['GET'])]
     public function show(Picture $picture): Response
     {
