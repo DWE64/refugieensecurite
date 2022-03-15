@@ -4,25 +4,27 @@
 namespace App\Services;
 
 
+use App\Message\MailError;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class UploadFileService
 {
     private $targetDirectory;
     private $slugger;
-    private $mailer;
+    private $bus;
 
     public function __construct(
         $targetDirectory,
         SluggerInterface $slugger,
-        MailerManage $mailerManage,
+        MessageBusInterface $mailerManage,
     )
     {
         $this->targetDirectory = $targetDirectory;
         $this->slugger = $slugger;
-        $this->mailer = $mailerManage;
+        $this->bus = $mailerManage;
     }
 
     public function uploadFile(UploadedFile $file)
@@ -34,7 +36,7 @@ class UploadFileService
         try {
             $file->move($this->getTargetDirectory(), $fileName);
         } catch (FileException $e) {
-            $responseMailer = $this->mailer->sendErrorUploadFileMessage($e);
+            $responseMailer = $this->bus->dispatch(new MailError($e));
             return $responseMailer;
         }
 

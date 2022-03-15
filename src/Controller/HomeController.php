@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Picture;
 use App\Form\PictureType;
+use App\Message\MailNewAsk;
 use App\Repository\PictureRepository;
 use App\Services\UploadFileService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -26,6 +28,7 @@ class HomeController extends AbstractController
         Request $request,
         PictureRepository $pictureRepository,
         UploadFileService $uploadFileService,
+        MessageBusInterface $bus
     ): Response
     {
 
@@ -45,7 +48,7 @@ class HomeController extends AbstractController
             }
             $pictureRepository->add($picture);
 
-            //rajouter ici le mail de notif
+            $bus->dispatch(new MailNewAsk($picture->getId()));
 
             return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }
@@ -54,7 +57,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'controller_name' => $this->translator->trans('page.home'),
             'formUserSafe' => $form->createView(),
-            'listUsersSafes' => $pictureRepository->findAllAcceptedByDesc(true)
+            'listUsersSafes' => $pictureRepository->findBy(['accepted'=>true],['id'=>'DESC'])
         ]);
     }
 

@@ -93,6 +93,34 @@
         <source>page.home</source>
         <target>Accueil</target>
       </trans-unit>
+      <trans-unit id="rFZJyJT" resname="user.safe.validation">
+        <source>user.safe.validation</source>
+        <target>Demande de validation</target>
+      </trans-unit>
+      <trans-unit id="ACcM9j_" resname="logout">
+        <source>logout</source>
+        <target>Deconnexion</target>
+      </trans-unit>
+      <trans-unit id="UCp6jnR" resname="picture.list.admin">
+        <source>picture.list.admin</source>
+        <target>Liste des demandes</target>
+      </trans-unit>
+      <trans-unit id="QoghNQ6" resname="login">
+        <source>login</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="QBByDsX" resname="message.user.login">
+        <source>message.user.login</source>
+        <target>Message de connexion utilisateur</target>
+      </trans-unit>
+      <trans-unit id="UCsUjb5" resname="ask.login">
+        <source>ask.login</source>
+        <target>Connectez-vous</target>
+      </trans-unit>
+      <trans-unit id="XT06o0z" resname="button.login">
+        <source>button.login</source>
+        <target>Connexion</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

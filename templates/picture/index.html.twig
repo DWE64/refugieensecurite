@@ -1,42 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Picture index{% endblock %}
+{% block title %}{{ 'picture.list.admin'|trans }}{% endblock %}
 
-{% block body %}
-    <h1>Picture index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>UserSafe</th>
-                <th>HomeLocalisation</th>
-                <th>HomeCountry</th>
-                <th>CityBecoming</th>
-                <th>UrlPicture</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for picture in pictures %}
-            <tr>
-                <td>{{ picture.id }}</td>
-                <td>{{ picture.userSafe }}</td>
-                <td>{{ picture.homeLocalisation }}</td>
-                <td>{{ picture.homeCountry }}</td>
-                <td>{{ picture.cityBecoming }}</td>
-                <td>{{ picture.urlPicture }}</td>
-                <td>
-                    <a href="{{ path('app_picture_show', {'id': picture.id}) }}">show</a>
-                    <a href="{{ path('app_picture_edit', {'id': picture.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+{% block section %}
+
+<h4 class="header-title">{{ 'picture.list.admin'|trans }}</h4>
+
+<div class="tab-content">
+    <div class="tab-pane show active" id="striped-rows-preview">
+        <div class="table-responsive-sm">
+            <table class="table table-striped table-centered mb-0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>UserSafe</th>
+                        <th>HomeLocalisation</th>
+                        <th>HomeCountry</th>
+                        <th>CityBecoming</th>
+                        <th>UrlPicture</th>
+                        <th>Status</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for picture in pictures %}
+                    <tr>
+                        <td>{{ picture.id }}</td>
+                        <td>{{ picture.userSafe }}</td>
+                        <td>{{ picture.homeLocalisation }}</td>
+                        <td>{{ picture.homeCountry }}</td>
+                        <td>{{ picture.cityBecoming }}</td>
+                        <td>{{ picture.urlPicture }}</td>
+                        <td>
+                            <div>
+                                <input type="checkbox" class="switch2" id="switch2_{{ picture.id }}" {{ (picture.accepted)? 'checked' : '' }} data-switch="success" data-url="{{ path('change_status', {'id': picture.id}) }}" data-value="{{ picture.id }}"/>
+                                <label for="switch2_{{ picture.id }}" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>
+                            </div>
+                        </td>
+                        <td class="table-action">
+                            <a class="action-icon" href="{{ path('app_picture_show', {'id': picture.id}) }}"><i class="mdi mdi-eye"></i></a>
+                            <a class="action-icon" href="{{ path('app_picture_edit', {'id': picture.id}) }}"><i class="mdi mdi-pencil"></i></a>
+                            <a class="action-icon" href="{{ path('app_picture_delete', {'id': picture.id}) }}"><i class="mdi mdi-delete"></i></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

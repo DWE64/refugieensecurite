@@ -2,6 +2,7 @@
 namespace App\Services;
 
 
+use App\Entity\Picture;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Mailer\Exception\ExceptionInterface;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -38,6 +39,25 @@ class MailerManage
             $this->mailer->send($mail);
             return null;
         }catch(TransportException $e){
+            print_r($e);
+            return null;
+        }
+    }
+    public function sendEmailNewFile(Picture $picture)
+    {
+        try {
+            $mail=(new TemplatedEmail())
+                ->from('nouvelle_demande@refugieensecurite.com')
+                ->to('contact@dwe64.com')
+                ->priority(Email::PRIORITY_HIGH)
+                ->subject("Demande de validation pour l'objet ".$picture->getId().' - '.$picture->getUserSafe())
+                ->htmlTemplate('admin/mailAsking/_mailAsking.html.twig')
+                ->context([
+                    'idUserSafe' => $picture->getId(),
+                    'dateCreated'=>$picture->getCreatedAt()
+                ]);
+            $this->mailer->send($mail);
+        }catch (TransportException $e){
             print_r($e);
             return null;
         }

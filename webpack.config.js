@@ -32,6 +32,7 @@ Encore
     .addStyleEntry('app-dark','./assets/styles/themeHyper/scss/app-dark.scss')
     .addStyleEntry('icons','./assets/styles/themeHyper/scss/icons.scss')
 
+    .addEntry('admin_change_picture_status', './assets/js/admin/gestionPicture/changeStatusPicture.js')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 

@@ -43,7 +43,7 @@ class Picture
     public function __construct()
     {
         $this->accepted = false;
-        $this->createdAt = new \DateTimeImmutable("now");
+        $this->createdAt = new \DateTime("now");
     }
 
     public function getId(): ?int

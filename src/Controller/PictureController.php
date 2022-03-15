@@ -5,19 +5,29 @@ namespace App\Controller;
 use App\Entity\Picture;
 use App\Form\PictureType;
 use App\Repository\PictureRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[IsGranted('ROLE_SUPER_ADMIN')]
 #[Route('/picture')]
 class PictureController extends AbstractController
 {
+    private $pictureRepository;
+
+    public function __construct(PictureRepository $pictureRepository)
+    {
+        $this->pictureRepository = $pictureRepository;
+    }
+
     #[Route('/', name: 'app_picture_index', methods: ['GET'])]
-    public function index(PictureRepository $pictureRepository): Response
+    public function index(): Response
     {
         return $this->render('picture/index.html.twig', [
-            'pictures' => $pictureRepository->findAll(),
+            'pictures' => $this->pictureRepository->findAll(),
         ]);
     }
 
@@ -30,13 +40,13 @@ class PictureController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_picture_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Picture $picture, PictureRepository $pictureRepository): Response
+    public function edit(Request $request, Picture $picture): Response
     {
         $form = $this->createForm(PictureType::class, $picture);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $pictureRepository->add($picture);
+            $this->pictureRepository->add($picture);
             return $this->redirectToRoute('app_picture_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -47,12 +57,26 @@ class PictureController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_picture_delete', methods: ['POST'])]
-    public function delete(Request $request, Picture $picture, PictureRepository $pictureRepository): Response
+    public function delete(Request $request, Picture $picture): Response
     {
         if ($this->isCsrfTokenValid('delete'.$picture->getId(), $request->request->get('_token'))) {
-            $pictureRepository->remove($picture);
+            $this->pictureRepository->remove($picture);
         }
 
         return $this->redirectToRoute('app_picture_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/change_status/{id}', name: 'change_status', methods: ['POST'])]
+    public function changeStatus(Picture $picture)
+    {
+        if($picture->getAccepted()){
+            $picture->setAccepted(false);
+            $picture->setDateRefused(new \DateTimeImmutable('now'));
+        }else{
+            $picture->setAccepted(true);
+            $picture->setDateAccepted(new \DateTimeImmutable('now'));
+        }
+        $this->pictureRepository->add($picture);
+        return new JsonResponse(['message'=>'changement effectué'],200, []);
     }
 }
