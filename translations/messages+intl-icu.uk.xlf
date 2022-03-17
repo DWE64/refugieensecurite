@@ -59,7 +59,7 @@
       </trans-unit>
       <trans-unit id="20nkut2" resname="user.safe.picture">
         <source>user.safe.picture</source>
-        <target>Ваша картина</target>
+        <target>Ваше фото</target>
       </trans-unit>
       <trans-unit id="R3CdZgz" resname="post.user.safe">
         <source>post.user.safe</source>
