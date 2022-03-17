@@ -26,7 +26,7 @@ class MailErrorHandler
         try{
 
             $mail=(new TemplatedEmail())
-                ->from('error.file@refugieensecurite.com')
+                ->from('error.file@refugiesensecurite.com')
                 ->to('contact@dwe64.com')
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject("Erreur lors du chargement d'une image")

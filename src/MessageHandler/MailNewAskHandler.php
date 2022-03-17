@@ -31,7 +31,7 @@ class MailNewAskHandler
         $picture = $this->pictureRep->find($mail->getContent());
         try {
             $mail=(new TemplatedEmail())
-                ->from('nouvelle_demande@refugieensecurite.com')
+                ->from('nouvelle_demande@refugiesensecurite.com')
                 ->to('contact@dwe64.com')
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject("Demande de validation pour l'objet ".$picture->getId().' - '.$picture->getUserSafe())
