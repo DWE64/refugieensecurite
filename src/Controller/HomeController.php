@@ -10,6 +10,7 @@ use App\Services\UploadFileService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -40,7 +41,7 @@ class HomeController extends AbstractController
             $filename = $form->get('urlPicture')->getData();
             if($filename){
                 $newFilename = $uploadFileService->uploadFile($filename);
-                if(null === $newFilename)
+                if($newFilename instanceof Envelope)
                 {
                     return $this->redirectToRoute('app_home', [], Response::HTTP_UNSUPPORTED_MEDIA_TYPE);
                 }
