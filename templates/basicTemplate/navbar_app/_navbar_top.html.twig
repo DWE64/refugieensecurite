@@ -14,15 +14,15 @@
         <li class="dropdown notification-list topbar-dropdown">
             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 {% if app.request.locale =='fr' %}
-                    <img src="themeHyper/images/flags/french.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                    <img src="{{ asset('themeHyper/images/flags/french.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="12">
                     <span class="align-middle d-none d-sm-inline-block">{{ 'french.language'|trans }}</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                 {% endif %}
                 {% if app.request.locale =='en' %}
-                    <img src="themeHyper/images/flags/english.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                    <img src="{{ asset('themeHyper/images/flags/english.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="12">
                     <span class="align-middle d-none d-sm-inline-block">{{ 'english.language'|trans }}</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                 {% endif %}
                 {% if app.request.locale =='uk' %}
-                    <img src="themeHyper/images/flags/ukrainian.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                    <img src="{{ asset('themeHyper/images/flags/ukrainian.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="12">
                     <span class="align-middle d-none d-sm-inline-block">{{ 'ukrainian.language'|trans }}</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                 {% endif %}
             </a>
@@ -35,13 +35,13 @@
                     {% if locale != app.request.locale %}
                         <a href="{{ path('change_locale', {'locale': locale}) }}" class="dropdown-item notify-item">
                             {% if locale == 'fr' %}
-                                <img src="themeHyper/images/flags/french.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">{{ 'french.language'|trans }}</span>
+                                <img src="{{ asset('themeHyper/images/flags/french.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">{{ 'french.language'|trans }}</span>
                             {% endif %}
                             {% if locale == 'en'%}
-                                <img src="themeHyper/images/flags/english.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">{{ 'english.language'|trans }}</span>
+                                <img src="{{ asset('themeHyper/images/flags/english.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">{{ 'english.language'|trans }}</span>
                             {% endif %}
                             {% if locale == 'uk'%}
-                                <img src="themeHyper/images/flags/ukrainian.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">{{ 'ukrainian.language'|trans }}</span>
+                                <img src="{{ asset('themeHyper/images/flags/ukrainian.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">{{ 'ukrainian.language'|trans }}</span>
                             {% endif %}
                         </a>
                     {% endif %}
