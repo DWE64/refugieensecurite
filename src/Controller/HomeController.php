@@ -43,7 +43,7 @@ class HomeController extends AbstractController
                 $newFilename = $uploadFileService->uploadFile($filename);
                 if($newFilename instanceof Envelope)
                 {
-                    return $this->redirectToRoute('app_home', [], Response::HTTP_UNSUPPORTED_MEDIA_TYPE);
+                    return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
                 }
                 $picture->setUrlPicture($newFilename);
             }
