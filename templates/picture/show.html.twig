@@ -2,41 +2,37 @@
 
 {% block title %}Picture{% endblock %}
 
-{% block body %}
-    <h1>Picture</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ picture.id }}</td>
-            </tr>
-            <tr>
-                <th>UserSafe</th>
-                <td>{{ picture.userSafe }}</td>
-            </tr>
-            <tr>
-                <th>HomeLocalisation</th>
-                <td>{{ picture.homeLocalisation }}</td>
-            </tr>
-            <tr>
-                <th>HomeCountry</th>
-                <td>{{ picture.homeCountry }}</td>
-            </tr>
-            <tr>
-                <th>CityBecoming</th>
-                <td>{{ picture.cityBecoming }}</td>
-            </tr>
-            <tr>
-                <th>UrlPicture</th>
-                <td>{{ picture.urlPicture }}</td>
-            </tr>
-        </tbody>
-    </table>
-
+{% block section %}
+    <h1>Demande n°{{ picture.id }}</h1>
     <a href="{{ path('app_picture_index') }}">back to list</a>
 
-    <a href="{{ path('app_picture_edit', {'id': picture.id}) }}">edit</a>
 
-    {{ include('picture/_delete_form.html.twig') }}
+    <div class="row mx-0 px-2">
+        <div class="col-xl-6 col-lg-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    <img src="{{ absolute_url(asset('uploads/imgUsersSafes/' ~ picture.urlPicture)) }}" class="rounded-circle avatar-lg img-thumbnail"
+                         alt="profile-image">
+
+                    <h4 class="mb-0 mt-2">{{ picture.userSafe }}</h4>
+                    <div>
+                        <a class="action-icon" href="{{ path('app_picture_edit', {'id': picture.id}) }}"><i class="mdi mdi-pencil"></i></a>
+                    </div>
+                    <div class="text-start mt-3">
+                        <p class="text-muted mb-2 font-13"><strong>HomeLocalisation :</strong> <span class="ms-2">{{ picture.homeLocalisation }}</span></p>
+
+                        <p class="text-muted mb-2 font-13"><strong>HomeCountry :</strong><span class="ms-2">{{ picture.homeCountry }}</span></p>
+
+                        <p class="text-muted mb-2 font-13"><strong>CityBecoming :</strong> <span class="ms-2 ">{{ picture.cityBecoming }}</span></p>
+
+                    </div>
+                    <div>
+                        <input type="checkbox" class="switch2" id="switch2_{{ picture.id }}" {{ (picture.accepted)? 'checked' : '' }} data-switch="success" data-url="{{ path('change_status', {'id': picture.id}) }}" data-value="{{ picture.id }}"/>
+                        <label for="switch2_{{ picture.id }}" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>
+                    </div>
+                    {{ include('picture/_delete_form.html.twig') }}
+                </div> <!-- end card-body -->
+            </div> <!-- end card -->
+        </div> <!-- end col-->
+    </div>
 {% endblock %}

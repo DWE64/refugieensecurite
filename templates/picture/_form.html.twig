@@ -1,4 +1,30 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="row px-2">
+    <div class="col-12">
+        {{ form_start(form) }}
+        <div class="row justify-content-center my-2">
+            {{ form_label(form.userSafe) }}
+            {{ form_widget(form.userSafe) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(form.homeLocalisation) }}
+            {{ form_widget(form.homeLocalisation) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(form.homeCountry) }}
+            {{ form_widget(form.homeCountry) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(form.cityBecoming) }}
+            {{ form_widget(form.cityBecoming) }}
+        </div>
+        <div class="row justify-content-center my-2">
+            {{ form_label(form.urlPicture) }}
+            {{ form_widget(form.urlPicture) }}
+        </div>
+        <div class="row justify-content-left my-2">
+            {{ form_label(form.save) }}
+            {{ form_widget(form.save) }}
+        </div>
+        {{ form_end(form) }}
+    </div> <!-- end col -->
+</div>

@@ -32,7 +32,7 @@
                         <td>{{ picture.homeLocalisation }}</td>
                         <td>{{ picture.homeCountry }}</td>
                         <td>{{ picture.cityBecoming }}</td>
-                        <td>{{ picture.urlPicture }}</td>
+                        <td class="table-user"><img src="{{ absolute_url(asset('uploads/imgUsersSafes/' ~ picture.urlPicture)) }}" alt="table-user" class="me-2 rounded-circle" /></td>
                         <td>
                             <div>
                                 <input type="checkbox" class="switch2" id="switch2_{{ picture.id }}" {{ (picture.accepted)? 'checked' : '' }} data-switch="success" data-url="{{ path('change_status', {'id': picture.id}) }}" data-value="{{ picture.id }}"/>

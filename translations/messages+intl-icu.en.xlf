@@ -125,6 +125,10 @@
         <source>mentions.legales</source>
         <target>Légals Mentions</target>
       </trans-unit>
+      <trans-unit id="wSXQOXt" resname="accept">
+        <source>accept</source>
+        <target>I accept</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

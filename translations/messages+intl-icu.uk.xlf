@@ -125,6 +125,10 @@
         <source>mentions.legales</source>
         <target>Юридичне повідомлення</target>
       </trans-unit>
+      <trans-unit id="wSXQOXt" resname="accept">
+        <source>accept</source>
+        <target>Я приймаю</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

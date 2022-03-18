@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class PictureType extends AbstractType
+class PictureEditType extends AbstractType
 {
     private $translator;
 
@@ -91,26 +91,11 @@ class PictureType extends AbstractType
                 ],
                 'label'=>$this->translator->trans('user.safe.picture')
             ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-                'label'=> $this->translator->trans("accept"),
-                'label_attr'=>[
-                    'class' => 'form-check-label px-2 col-md-3 col-12 text-center align-self-center',
-                ],
-                'attr'=>[
-                    'class'=>'form-check-input col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 align-self-center mb-1'
-                ],
-            ])
             ->add('save', SubmitType::class,[
                 'attr' => [
-                    'class' => 'btn btn-success col-lg-2 col-12'
+                    'class' => 'btn btn-success col-lg-3 col-12'
                 ],
-                'label'=>$this->translator->trans('post.user.safe')
+                'label'=>"Modifier"
             ])
         ;
     }

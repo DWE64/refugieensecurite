@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Picture;
+use App\Form\PictureEditType;
 use App\Form\PictureType;
 use App\Repository\PictureRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -42,7 +43,7 @@ class PictureController extends AbstractController
     #[Route('/{id}/edit', name: 'app_picture_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Picture $picture): Response
     {
-        $form = $this->createForm(PictureType::class, $picture);
+        $form = $this->createForm(PictureEditType::class, $picture);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

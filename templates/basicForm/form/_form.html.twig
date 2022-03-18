@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row px-2">
     <div class="col-12">
         {{ form_start(formUserSafe) }}
         <div class="row justify-content-center my-2">
@@ -20,6 +20,11 @@
         <div class="row justify-content-center my-2">
             {{ form_label(formUserSafe.urlPicture) }}
             {{ form_widget(formUserSafe.urlPicture) }}
+        </div>
+        <div class="row justify-content-left my-2">
+            {{ form_widget(formUserSafe.agreeTerms) }}
+            {{ form_label(formUserSafe.agreeTerms) }}
+            <p class="text-left col-md-3 col-12 mx-0 px-0"><a href="{{ path('app_mentions_legales') }}">{{ 'mentions.legales'|trans }}</a></p>
         </div>
         <div class="row justify-content-center my-2">
             {{ form_label(formUserSafe.save) }}
