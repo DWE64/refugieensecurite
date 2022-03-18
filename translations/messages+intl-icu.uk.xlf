@@ -121,6 +121,10 @@
         <source>button.login</source>
         <target>__button.login</target>
       </trans-unit>
+      <trans-unit id="QqV4.6Q" resname="mentions.legales">
+        <source>mentions.legales</source>
+        <target>Юридичне повідомлення</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
