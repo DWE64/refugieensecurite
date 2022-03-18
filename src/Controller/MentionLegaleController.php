@@ -15,7 +15,7 @@ class MentionLegaleController extends AbstractController
     {
         $this->translator = $translator;
     }
-    #[Route('/mention_legale', name: 'app_mention_legale')]
+    #[Route('/mentions_legales', name: 'app_mentions_legales')]
     public function index(): Response
     {
         return $this->render('mention_legale/index.html.twig', [
