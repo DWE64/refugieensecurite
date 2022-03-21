@@ -95,31 +95,31 @@
       </trans-unit>
       <trans-unit id="rFZJyJT" resname="user.safe.validation">
         <source>user.safe.validation</source>
-        <target>__user.safe.validation</target>
+        <target>Validation request</target>
       </trans-unit>
       <trans-unit id="ACcM9j_" resname="logout">
         <source>logout</source>
-        <target>__logout</target>
+        <target>Logout</target>
       </trans-unit>
       <trans-unit id="UCp6jnR" resname="picture.list.admin">
         <source>picture.list.admin</source>
-        <target>__picture.list.admin</target>
+        <target>List of requests</target>
       </trans-unit>
       <trans-unit id="QoghNQ6" resname="login">
         <source>login</source>
-        <target>__login</target>
+        <target>Login</target>
       </trans-unit>
       <trans-unit id="QBByDsX" resname="message.user.login">
         <source>message.user.login</source>
-        <target>__message.user.login</target>
+        <target>User login message</target>
       </trans-unit>
       <trans-unit id="UCsUjb5" resname="ask.login">
         <source>ask.login</source>
-        <target>__ask.login</target>
+        <target>Login</target>
       </trans-unit>
       <trans-unit id="XT06o0z" resname="button.login">
         <source>button.login</source>
-        <target>__button.login</target>
+        <target>Login</target>
       </trans-unit>
       <trans-unit id="QqV4.6Q" resname="mentions.legales">
         <source>mentions.legales</source>
