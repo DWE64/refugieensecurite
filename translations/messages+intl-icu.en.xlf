@@ -129,6 +129,26 @@
         <source>accept</source>
         <target>I accept</target>
       </trans-unit>
+      <trans-unit id="KA1Eqx6" resname="welcome">
+        <source>welcome</source>
+        <target>Welcome</target>
+      </trans-unit>
+      <trans-unit id="vu6Hd00" resname="explication.welcome">
+        <source>explication.welcome</source>
+        <target>Do you welcome Ukrainian refugees and want to let their families who stayed behind know that your hosts are safe and sound?</target>
+      </trans-unit>
+      <trans-unit id="bv4atxt" resname="explication.welcome2">
+        <source>explication.welcome2</source>
+        <target>Are you a Ukrainian refugee and want to let your family back in Ukraine know that you are safe and sound?</target>
+      </trans-unit>
+      <trans-unit id="wQiV9u6" resname="explication.welcome3">
+        <source>explication.welcome3</source>
+        <target>Post a photo with simple information by clicking on the "New refugee" button!</target>
+      </trans-unit>
+      <trans-unit id="iI9gk5s" resname="explication.welcome4">
+        <source>explication.welcome4</source>
+        <target>This simple operation will allow your families to know that you are safe!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -129,6 +129,26 @@
         <source>accept</source>
         <target>J'accepte les</target>
       </trans-unit>
+      <trans-unit id="KA1Eqx6" resname="welcome">
+        <source>welcome</source>
+        <target>Bienvenue</target>
+      </trans-unit>
+      <trans-unit id="vu6Hd00" resname="explication.welcome">
+        <source>explication.welcome</source>
+        <target>Vous accueillez des réfugiés Ukrainiens et souhaitez faire savoir à leurs familles restées sur places que vos hôtes sont sains et sauf ?</target>
+      </trans-unit>
+      <trans-unit id="bv4atxt" resname="explication.welcome2">
+        <source>explication.welcome2</source>
+        <target>Vous êtes réfugié Ukrainien et souhaitez faire savoir à votre famille restée en Ukraine que vous êtes sain et sauf ?</target>
+      </trans-unit>
+      <trans-unit id="wQiV9u6" resname="explication.welcome3">
+        <source>explication.welcome3</source>
+        <target>Postez une photo avec de simples informations en cliquant sur le bouton "Nouveau réfugié" !</target>
+      </trans-unit>
+      <trans-unit id="iI9gk5s" resname="explication.welcome4">
+        <source>explication.welcome4</source>
+        <target>Cette simple opération permettra à vos familles de vous savoir en sécurité !</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

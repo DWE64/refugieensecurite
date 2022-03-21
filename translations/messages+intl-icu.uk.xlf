@@ -129,6 +129,26 @@
         <source>accept</source>
         <target>Я приймаю</target>
       </trans-unit>
+      <trans-unit id="KA1Eqx6" resname="welcome">
+        <source>welcome</source>
+        <target>ласкаво просимо</target>
+      </trans-unit>
+      <trans-unit id="vu6Hd00" resname="explication.welcome">
+        <source>explication.welcome</source>
+        <target>Чи вітаєте ви українських біженців і хочете повідомити їхнім родинам, які залишилися, що ваші господарі цілі й здорові?</target>
+      </trans-unit>
+      <trans-unit id="bv4atxt" resname="explication.welcome2">
+        <source>explication.welcome2</source>
+        <target>Ви український біженець і хочете, щоб ваша сім’я повернулася в Україну, щоб знати, що ви цілий і здоровий?</target>
+      </trans-unit>
+      <trans-unit id="wQiV9u6" resname="explication.welcome3">
+        <source>explication.welcome3</source>
+        <target>Опублікуйте фото з простою інформацією, натиснувши на кнопку «Новий біженець»!</target>
+      </trans-unit>
+      <trans-unit id="iI9gk5s" resname="explication.welcome4">
+        <source>explication.welcome4</source>
+        <target>Ця проста операція дозволить вашим родинам знати, що ви в безпеці!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
